@@ -11,7 +11,8 @@ COPY ./app /home/app
 WORKDIR /home/app
 
 # will execute npm install in /home/app because of WORKDIR
-RUN npm install
+RUN npm install \
+    npm server.js    
 
 CMD ["node", "server.js"]
 

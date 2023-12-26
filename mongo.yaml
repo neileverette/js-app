@@ -2,7 +2,8 @@ version: '3'
 services:
   my-app:
     image: 070322435379.dkr.ecr.us-east-1.amazonaws.com/my-app:1.0
-    ports: 3000:3000
+    ports: 
+      - 3000:3000
 
   mongodb:
     image: mongo
@@ -15,7 +16,7 @@ services:
  #    - mongo-data:/data/db
   mongo-express:
     image: mongo-express
-    restart: alwaysdoc
+    restart: always
     ports:
      - 8081:8081
     environment:
@@ -27,3 +28,4 @@ services:
 #volumes:
 #  mongo-data:
 #    driver: local
+
