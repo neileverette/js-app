@@ -147,13 +147,26 @@
         // Get the current time
         var currentTime = new Date();
 
-        // Extract hours, minutes, and seconds
+        // Extract hours, minutes, and AM/PM
         var hours = currentTime.getHours();
         var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
+        var ampm = hours >= 12 ? 'pm' : 'am';
 
-        // Display the current time in the H1 header
-        document.getElementById("currentTime").textContent = "Current Time: " + hours + ":" + minutes + ":" + seconds;
+        // Convert hours to 12-hour format
+        if (hours > 12) {
+            hours -= 12;
+        }
+
+        // Extract the day of the month
+        var day = currentTime.getDate();
+
+        // Get the month name
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var month = months[currentTime.getMonth()];
+
+        // Display the current time in the desired format
+        var formattedTime = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ampm + " " + month + " " + day;
+        document.getElementById("currentTime").textContent = formattedTime;
     </script>
-    
+
 </html>
