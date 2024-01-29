@@ -110,30 +110,16 @@
 
         cont.style.display = 'none';
         contEdit.style.display = 'block';
-
-// Dynamic time function
-        function updateDateTime() {
-            const dateTimeElement = document.getElementById('dateTime');
-            const now = new Date();
-            const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
-            dateTimeElement.textContent = dateTimeString; // Set the content of the h1 element
-        }
-
-        // Update the date and time every second
-        setInterval(updateDateTime, 1000);
-        
-        // Initial update
-        updateDateTime();
     }
 </script>
 <body>
-    <!--Delete this section-->
-    <h1>2:21 Edition</h1>
-    <h1 id="dateTime">This isn't working?</h1>
-     <!--Delete this section-->
-
-
     <div class='container' id='container'>
+        
+        <!--Delete this section-->
+        <h1>6:09 Edition</h1>
+        <h1 id="currentTime"></h1>
+        <!--Delete this section-->
+
         <h1>User profile</h1>
         <img src='profile-picture' alt="user-profile">
         <span>Name: </span><h3 id='name'>Anna Smith</h3>
@@ -156,4 +142,18 @@
         <button class='button' onclick="handleUpdateProfileRequest()">Update Profile</button>
     </div>
 </body>
+
+    <script>
+        // Get the current time
+        var currentTime = new Date();
+
+        // Extract hours, minutes, and seconds
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Display the current time in the H1 header
+        document.getElementById("currentTime").textContent = "Current Time: " + hours + ":" + minutes + ":" + seconds;
+    </script>
+    
 </html>
