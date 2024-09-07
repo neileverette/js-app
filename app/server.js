@@ -1,3 +1,6 @@
+// This line must come before importing any instrumented module.
+const tracer = require('dd-trace').init();
+
 let express = require('express');
 let path = require('path');
 let fs = require('fs');
@@ -12,7 +15,7 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
-  });
+});
 
 app.get('/profile-picture', function (req, res) {
   let img = fs.readFileSync(path.join(__dirname, "images/profile_pic.jpeg"));
@@ -79,4 +82,3 @@ app.post('/update-profile', function (req, res) {
 app.listen(3000, function () {
   console.log("app listening on port 3000!");
 });
-
