@@ -1,7 +1,7 @@
 version: '3'
 services:
   my-app:
-    #image: 070322435379.dkr.ecr.us-east-2.amazonaws.com/js-app:1.1
+    ##image: 070322435379.dkr.ecr.us-east-2.amazonaws.com/js-app:1.1
     image : neileverette/js-app:1.3
     ports:
      - 3000:3000
